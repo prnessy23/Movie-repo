@@ -1,0 +1,20 @@
+DROP DATABASE IF EXISTS movies_db;
+CREATE DATABASE movies_db;
+
+USE movies_db;
+
+DROP TABLE IF EXISTS movies;
+CREATE TABLE movies (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(30) 
+  );
+DROP TABLE IF EXISTS reviews;
+CREATE TABLE reviews (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  review_content text NOT NULL,
+  movie_id INT,
+FOREIGN KEY (movie_id)
+REFERENCES movies(id)
+ ON DELETE SET NULL
+);
+
